@@ -1,5 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPA 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/course.atom.xml" rel="self"></link><id>./</id><updated>2016-11-05T12:00:00+08:00</updated><entry><title>2016Fall CP 學員連結</title><link href="./2016fall-cp-xue-yuan-lian-jie.html" rel="alternate"></link><published>2016-11-05T12:00:00+08:00</published><updated>2016-11-05T12:00:00+08:00</updated><author><name>s40523229</name></author><id>tag:,2016-11-05:./2016fall-cp-xue-yuan-lian-jie.html</id><summary type="html">&lt;p&gt;利用計算機程式兩班選課名單可以產生個別成員的倉儲、筆記、投影片與網誌.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPA 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/course.atom.xml" rel="self"></link><id>./</id><updated>2017-01-09T14:00:00+08:00</updated><entry><title>2016fallcp 期末考週</title><link href="./2016fallcp-qi-mo-kao-zhou.html" rel="alternate"></link><published>2017-01-09T14:00:00+08:00</published><updated>2017-01-09T14:00:00+08:00</updated><author><name>40523229</name></author><id>tag:,2017-01-09:./2016fallcp-qi-mo-kao-zhou.html</id><summary type="html">&lt;p&gt;W17週心得與程式範例:&lt;/p&gt;
+&lt;p&gt;元旦放假&lt;/p&gt;
+&lt;p&gt;W16週心得與程式範例:&lt;/p&gt;
+&lt;p&gt;用python寫一個猜數字遊戲
+先讓程式隨機挑選一個數字
+再由自己輸入數字進行比對
+太大或太小就再輸入直到猜到為止&lt;/p&gt;
+&lt;!-- 導入 Brython 標準程式庫 --&gt;
+
+&lt;script type="text/javascript" 
+    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
+&lt;/script&gt;
+
+&lt;!-- 啟動 Brython --&gt;
+
+&lt;script&gt;
+window.onload=function(){
+brython(1);
+}
+&lt;/script&gt;
+
+&lt;!-- 以下實際利用  Brython  --&gt;
+
+&lt;div id="id3"&gt;&lt;/div&gt;
+
+&lt;script type="text/python3"&gt;
+from browser import document
+from browser import html
+import random
+
+id3 = document["id3"]
+def guess(ev):
+    # 清除 id3 中的內容
+    id3.clear()
+    id3 &lt;= "開始玩猜數字遊戲" + html.BR()
+    標準答案 = random.randint(1, 30)
+    你猜的數字 = int(input("請輸入您所猜 1~30 間的整數:"))
+    猜測次數 = 1
+    while 標準答案 != 你猜的數字:
+        if 標準答案 &lt; 你猜的數字:
+            print("太大了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 &lt;= "猜第" + str(猜測次數) + "次, 太大了，再猜一次 :)加油" + html.BR()
+        else:
+            print("太小了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 &lt;= "猜第" + str(猜測次數) + "次, 太小了，再猜一次 :)加油" + html.BR()
+        你猜的數字 = int(input("請輸入您所猜 1~30 間的整數:"))
+        猜測次數 += 1
+
+    print("猜對了！總共猜了", 猜測次數, "次")
+    id3 &lt;= "猜對了！答案為" + str(標準答案) + ", 總共猜了" + str(猜測次數) + "次"
+
+document["but3"].bind("click", guess)
+&lt;/script&gt;
+
+&lt;p&gt;&lt;button id="but3"&gt;玩猜數字遊戲&lt;/button&gt;&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+
+&lt;!-- 導入 Brython 標準程式庫 --&gt;
+&lt;script type="text/javascript" 
+    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
+&lt;/script&gt;
+
+&lt;!-- 啟動 Brython --&gt;
+&lt;script&gt;
+window.onload=function(){
+brython(1);
+}
+&lt;/script&gt;
+
+&lt;!-- 以下實際利用  Brython  --&gt;
+&lt;div id="id3"&gt;&lt;/div&gt;
+&lt;script type="text/python3"&gt;
+from browser import document
+from browser import html
+import random
+
+id3 = document["id3"]
+def guess(ev):
+    # 清除 id3 中的內容
+    id3.clear()
+    id3 &lt;= "開始玩猜數字遊戲" + html.BR()
+    標準答案 = random.randint(1, 30)
+    你猜的數字 = int(input("請輸入您所猜 1~30 間的整數:"))
+    猜測次數 = 1
+    while 標準答案 != 你猜的數字:
+        if 標準答案 &lt; 你猜的數字:
+            print("太大了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 &lt;= "猜第" + str(猜測次數) + "次, 太大了，再猜一次 :)加油" + html.BR()
+        else:
+            print("太小了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 &lt;= "猜第" + str(猜測次數) + "次, 太小了，再猜一次 :)加油" + html.BR()
+        你猜的數字 = int(input("請輸入您所猜 1~30 間的整數:"))
+        猜測次數 += 1
+
+    print("猜對了！總共猜了", 猜測次數, "次")
+    id3 &lt;= "猜對了！答案為" + str(標準答案) + ", 總共猜了" + str(猜測次數) + "次"
+
+document["but3"].bind("click", guess)
+&lt;/script&gt;
+&lt;button id="but3"&gt;玩猜數字遊戲&lt;/button&gt;
+
+&lt;/pre&gt;
+
+&lt;p&gt;W15週心得與程式範例:&lt;/p&gt;
+
+
+&lt;p&gt;繪圖流程, 導入程式庫, 啟動, 然後引用各種模組開始繪圖&lt;/p&gt;
+&lt;!-- 以下實際利用  Brython 畫圖 --&gt;
+
+&lt;script type="text/python3"&gt;
+from browser import document
+from browser import alert
+
+def get_input(ev):
+    the_input = input("請輸入")
+    alert("輸入為:"+str(the_input))
+    document['ch01'].bind('click',get_input)
+&lt;/script&gt;
+
+&lt;p&gt;&lt;button id="ch01"&gt;取輸入後, 列印出來&lt;/button&gt;&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+
+&lt;!-- 以下實際利用  Brython 畫圖 --&gt;
+&lt;script type="text/python3"&gt;
+from browser import document
+from browser import alert
+
+def get_input(ev):
+    the_input = input("請輸入")
+    alert("輸入為:"+str(the_input))
+    document['ch01'].bind('click',get_input)
+&lt;/script&gt;
+&lt;button id="ch01"&gt;取輸入後, 列印出來&lt;/button&gt;
+
+&lt;/pre&gt;</summary><category term="Brython"></category></entry><entry><title>W16</title><link href="./w16.html" rel="alternate"></link><published>2016-12-26T14:00:00+08:00</published><updated>2016-12-26T14:00:00+08:00</updated><author><name>40523229</name></author><id>tag:,2016-12-26:./w16.html</id><summary type="html">&lt;!-- 導入 Brython 標準程式庫 --&gt;
+
+&lt;script type="text/javascript" 
+    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
+&lt;/script&gt;
+
+&lt;!-- 啟動 Brython --&gt;
+
+&lt;script&gt;
+window.onload=function(){
+brython(1);
+}
+&lt;/script&gt;
+
+&lt;!-- 以下實際利用  Brython  --&gt;
+
+&lt;div id="id3"&gt;&lt;/div&gt;
+
+&lt;script type="text/python3"&gt;
+from browser import document
+from browser import html
+import random
+
+id3 = document["id3"]
+def guess(ev):
+    # 清除 id3 中的內容
+    id3.clear()
+    id3 &lt;= "開始玩猜數字遊戲" + html.BR()
+    標準答案 = random.randint(1, 100)
+    你猜的數字 = int(input("請輸入您所猜 1~100 間的整數:"))
+    猜測次數 = 1
+    while 標準答案 != 你猜的數字:
+        if 標準答案 &lt; 你猜的數字:
+            print("太大了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 &lt;= "猜第" + str(猜測次數) + "次, 太大了，再猜一次 :)加油" + html.BR()
+        else:
+            print("太小了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 &lt;= "猜第" + str(猜測次數) + "次, 太小了，再猜一次 :)加油" + html.BR()
+        你猜的數字 = int(input("請輸入您所猜 1~100 間的整數:"))
+        猜測次數 += 1
+
+    print("猜對了！總共猜了", 猜測次數, "次")
+    id3 &lt;= "猜對了！答案為" + str(標準答案) + ", 總共猜了" + str(猜測次數) + "次"
+
+document["but3"].bind("click", guess)
+&lt;/script&gt;
+
+&lt;p&gt;&lt;button id="but3"&gt;玩猜數字遊戲&lt;/button&gt;&lt;/p&gt;</summary><category term="Brython"></category></entry><entry><title>W14</title><link href="./w14.html" rel="alternate"></link><published>2016-12-19T14:00:00+08:00</published><updated>2016-12-19T14:00:00+08:00</updated><author><name>40523229</name></author><id>tag:,2016-12-19:./w14.html</id><summary type="html">&lt;p&gt;建立leo
+&lt;/p&gt;
+&lt;p&gt;@settings(設定字元)&lt;/p&gt;
+&lt;p&gt;@Path 資料夾 宣告地下的檔案位址&lt;/p&gt;
+&lt;p&gt;@edit 資料.md   (編輯資料)(屬於子節點)&lt;/p&gt;
+&lt;p&gt;@edit local_publishconf.py (設定檔) 引用到下方設定檔 &lt;/p&gt;
+&lt;p&gt;@edit pelicanconf.py (設定檔) &lt;/p&gt;
+&lt;p&gt;@button pelican-blog (轉檔) 內有路徑 #os.system("pelican content -o blog -s local_publishconf.py") 將content內md檔轉抄文件，存於blog，設定檔local_publishconf.py&lt;/p&gt;
+&lt;p&gt;@button https server(建立近端http伺服器，近端檢視遠端https下網誌的狀況)按鈕需有2key&lt;/p&gt;
+&lt;p&gt;複製localhost.crt至資料夾中 &lt;/p&gt;
+&lt;p&gt;複製localhost.key至資料夾中 &lt;/p&gt;
+&lt;p&gt;建立blog資料夾 &lt;/p&gt;
+&lt;p&gt;複製 轉檔需有plugin與theme的資料夾&lt;/p&gt;
+&lt;p&gt;@button https server內的 server_address = ('localhost', XXXX) XXXX為近端server網址https://localhost:XXXX&lt;/p&gt;
+&lt;p&gt;快捷鍵 &lt;/p&gt;
+&lt;p&gt;ctrl+u 上移 &lt;/p&gt;
+&lt;p&gt;ctrl+d 下移 &lt;/p&gt;
+&lt;p&gt;ctrl+r 右移 &lt;/p&gt;
+&lt;p&gt;ctrl+l 左移 &lt;/p&gt;
+&lt;p&gt;ctrl+i 新增&lt;/p&gt;
+&lt;p&gt;ctrl+r 成為子節點&lt;/p&gt;
+&lt;p&gt;leo內容: &lt;/p&gt;
+&lt;p&gt;規定格式 摘要 內容 &lt;/p&gt;
+&lt;p&gt;導入Brython 標準程式庫 &lt;/p&gt;
+&lt;p&gt;啟動Brython &lt;/p&gt;
+&lt;p&gt;寫Python&lt;/p&gt;</summary><category term="Brython"></category></entry><entry><title>2016Fall CP 學員連結</title><link href="./2016fall-cp-xue-yuan-lian-jie.html" rel="alternate"></link><published>2016-11-05T12:00:00+08:00</published><updated>2016-11-05T12:00:00+08:00</updated><author><name>s40523229</name></author><id>tag:,2016-11-05:./2016fall-cp-xue-yuan-lian-jie.html</id><summary type="html">&lt;p&gt;利用計算機程式兩班選課名單可以產生個別成員的倉儲、筆記、投影片與網誌.&lt;/p&gt;
 
 
 &lt;p&gt;有關 Brython html 模組的用法, 請參考 &lt;a href="http://www.brython.info/static_doc/en/html.html"&gt;http://www.brython.info/static_doc/en/html.html&lt;/a&gt;.&lt;/p&gt;
